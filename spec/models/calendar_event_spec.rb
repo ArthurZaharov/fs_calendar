@@ -5,4 +5,5 @@ RSpec.describe CalendarEvent, :type => :model do
 
 	it { should respond_to(:title) }
 	it { should respond_to(:date) }
+	it { should belong_to(:user) }
 end
