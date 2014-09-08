@@ -8,6 +8,8 @@
 </head>
 <body>
 
+	<%= render 'layouts/header' %>
+
 	<div class="container">
 		<div class="notice"><%= notice %></div>
 		<div class="alert"><%= alert %></div>
@@ -15,6 +17,8 @@
 		<%= yield %>
 
 	</div>
+
+	<%= render 'layouts/footer' %>
 
 	<%= debug params if Rails.env.development? %>
 
