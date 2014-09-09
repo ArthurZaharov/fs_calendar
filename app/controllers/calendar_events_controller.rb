@@ -21,6 +21,6 @@ class CalendarEventsController < ApplicationController
 	private
 
 		def calendar_event_params
-			params.require(:calendar_event).permit(:title, :date)
+			params.require(:calendar_event).permit(:title, :date, :repeat)
 		end
 end
