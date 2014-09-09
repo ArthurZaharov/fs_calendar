@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Users edit profile", :type => :feature do
+feature "Users edit profile", type: :feature do
 	let(:user) { create(:user) }
 	before { sign_in user }
 

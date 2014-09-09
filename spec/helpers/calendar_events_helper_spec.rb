@@ -10,6 +10,6 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe CalendarEventsHelper, :type => :helper do
+RSpec.describe CalendarEventsHelper, type: :helper do
 
 end

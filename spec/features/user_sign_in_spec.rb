@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Users sign in", :type => :feature do
+feature "Users sign in", type: :feature do
 	let(:user) { create(:user) }
 
 	scenario "fail with blank email" do
