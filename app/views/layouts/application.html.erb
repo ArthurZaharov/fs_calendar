@@ -11,11 +11,8 @@
 	<%= render 'layouts/header' %>
 
 	<div class="container">
-		<div class="notice"><%= notice %></div>
-		<div class="alert"><%= alert %></div>
-
+		<%= render 'layouts/alerts' %>
 		<%= yield %>
-
 	</div>
 
 	<%= render 'layouts/footer' %>
