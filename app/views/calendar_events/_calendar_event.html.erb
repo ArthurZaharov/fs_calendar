@@ -1,0 +1,10 @@
+<h4>
+	<span class="label label-primary"><%= calendar_event.date.strftime("%H:%M") %></span>
+	<em><small>(by <%= calendar_event.user.fullname %>)</small></em>
+	<%= calendar_event.title %>
+	<small>
+	<% if calendar_event.repeat != 'once' %>
+		This is <%= calendar_event.repeat %> event. Started at <%= calendar_event.date.strftime("%d %B %Y") %>
+	<% end %>
+	</small>
+</h4>

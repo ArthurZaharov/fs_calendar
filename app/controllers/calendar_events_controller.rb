@@ -1,7 +1,8 @@
 class CalendarEventsController < ApplicationController
 
 	def index
-		
+		@events_date = params[:for_date] ? Date.parse(params[:for_date]) : Time.now.in_time_zone('UTC')
+		@calendar_events = CalendarEvent.get_all_events_for_date(@events_date)
 	end
 
 	def new

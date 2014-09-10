@@ -1,0 +1,11 @@
+<h3>
+	<a href="<%= calendar_events_path %>?for_date=<%= @events_date - 1.day %>">
+		<span class="glyphicon glyphicon-chevron-left"></span>
+	</a>
+	Events for <%= @events_date.strftime("%B, %d") %>
+	<a href="<%= calendar_events_path %>?for_date=<%= @events_date + 1.day %>">
+		<span class="glyphicon glyphicon-chevron-right"></span>
+	</a>
+</h3>
+
+<%= render @calendar_events %>
