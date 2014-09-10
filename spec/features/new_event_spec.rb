@@ -15,10 +15,4 @@ feature "Create new event", type: :feature do
 
 		expect(page).to have_text("You successfully create new event")
 	end
-
-	def create_event_with title
-		visit new_calendar_event_path
-		fill_in "Title", with: title
-		click_button "Create event"
-	end
 end
