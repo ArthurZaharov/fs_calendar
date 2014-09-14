@@ -8,4 +8,8 @@
 	</a>
 </h3>
 
-<%= render @calendar_events %>
+<% unless @calendar_events.empty? %>
+	<%= render @calendar_events %>
+<% else %>
+	<em>You have not events for this day</em>
+<% end %>
