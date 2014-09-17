@@ -1,6 +1,10 @@
 <h4>
 	<span class="label label-primary"><%= calendar_event.date.strftime("%H:%M") %></span>
-	<em><small>(by <%= calendar_event.user.fullname %>)</small></em>
+	<em>
+		<small>
+			(by <%= calendar_event.user.fullname.empty? ? calendar_event.user.email : calendar_event.user.fullname %>)
+		</small>
+	</em>
 	<% if calendar_event.user == current_user %>
 		<a href="<%= edit_calendar_event_path(calendar_event) %>"><%= calendar_event.title %></a>
 	<% else %>
