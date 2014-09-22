@@ -3,6 +3,7 @@ class CalendarEventsController < ApplicationController
 	before_action :authenticate_user!
 	before_action :set_events_date, only: [:index, :by_user]
 	before_action :find_calendar_event, only: [:edit, :update]
+	before_action :check_permission, only: [:edit, :update]
 
 	def index
 		@calendar_events = CalendarEvent.all_events_for @events_date
@@ -50,5 +51,11 @@ class CalendarEventsController < ApplicationController
 
 		def find_calendar_event
 			@calendar_event = CalendarEvent.find(params[:id])
+		end
+
+		def check_permission
+			unless @calendar_event.user == current_user
+				redirect_to root_path, alert: "Permission denied"
+			end
 		end
 end
