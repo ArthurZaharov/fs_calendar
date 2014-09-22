@@ -1,0 +1,30 @@
+nav.navbar.navbar-default role="navigation"
+	.container-fluid
+
+		.navbar-header
+			button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#bs-navbar-collapse"
+				span.sr-only Toggle navigation
+				span.icon-bar
+				span.icon-bar
+				span.icon-bar
+			= link_to 'Calendar', root_path, class: "navbar-brand"
+			
+		#bs-navbar-collapse.collapse.navbar-collapse
+			ul.nav.navbar-nav
+				li.active
+					= link_to 'Home', root_path
+				- if user_signed_in?
+					li
+						= link_to 'Profile', edit_user_registration_path
+					li
+						= link_to 'New event', new_calendar_event_path
+					li
+						= link_to 'My events', users_calendar_events_path
+					li
+						= link_to 'Log out', destroy_user_session_path, method: :delete
+				- else
+					li
+						= link_to 'Sign in', new_user_session_path
+					li
+						= link_to 'Sign up', new_user_registration_path
+						

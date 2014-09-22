@@ -1,0 +1,19 @@
+doctype html
+html
+	head
+		title FsCalendar
+		= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+		= javascript_include_tag 'application', 'data-turbolinks-track' => true
+		= csrf_meta_tags
+
+	body
+		.container
+		
+			= render 'layouts/header'
+			= render 'layouts/alerts'
+			= yield
+			= render 'layouts/footer'
+
+		- if Rails.env.development?
+			= debug params
+		

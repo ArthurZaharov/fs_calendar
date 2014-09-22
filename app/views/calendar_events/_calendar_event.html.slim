@@ -1,0 +1,15 @@
+h4
+	span.label.label-primary
+		= calendar_event.date.strftime("%H:%M")
+	em
+		small<
+			| (by #{calendar_event.user.to_s})
+
+	- if calendar_event.user == current_user
+		=< link_to calendar_event.title, edit_calendar_event_path(calendar_event)
+	- else
+		=< calendar_event.title
+		
+	- if calendar_event.repeat != 'once'
+		small< This is #{calendar_event.repeat} event. Started at #{calendar_event.date.strftime("%d %B %Y")}
+		

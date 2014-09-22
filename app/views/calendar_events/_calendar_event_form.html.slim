@@ -1,0 +1,32 @@
+= form_for @calendar_event, html: { class: "form-horizontal" } do |f|
+
+	.row
+		.col-sm-offset-2.col-sm-4
+			= render 'shared/error_messages', object: f.object
+
+	.form-group
+		= f.label :title, class: "col-sm-2 control-label"
+		.col-sm-4
+			= f.text_field :title, autofocus: true, class: "form-control", placeholder: "Event title..."
+
+	.form-group
+		= f.label :date, class: "col-sm-2 control-label"
+		.col-sm-4
+			= f.datetime_select :date, class: "form-control"
+
+	.form-group
+		.col-sm-offset-2.col-sm-4
+			=> f.radio_button :repeat, 'once', checked: true
+			= f.label :repeat_once, 'once'
+			=<> f.radio_button :repeat, 'daily'
+			= f.label :repeat_daily, 'daily'
+			=<> f.radio_button :repeat, 'weekly'
+			= f.label :repeat_weekly, 'weekly'
+			=<> f.radio_button :repeat, 'monthly'
+			= f.label :repeat_monthly, 'monthly'
+			=<> f.radio_button :repeat, 'yearly'
+			= f.label :repeat_yearly, 'yearly'
+			
+	.form-group
+		.col-sm-offset-2.col-sm-4
+			= f.submit "Save", class: "btn btn-default"
