@@ -12,12 +12,6 @@ class CalendarEvent < ActiveRecord::Base
 		end.compact
 	end
 
-	def self.events_for user, date
-		where('user_id = ? AND date <= ?', "#{user.id}", "#{date.end_of_day}").map do |calendar_event|
-			calendar_event if check? calendar_event, date
-		end.compact
-	end
-
 	private
 
 		def self.check? calendar_event, date

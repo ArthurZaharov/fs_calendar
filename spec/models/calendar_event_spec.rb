@@ -43,16 +43,6 @@ RSpec.describe CalendarEvent, type: :model do
 		end
 	end
 
-	describe "events for user" do
-		let!(:user) { create(:user) }
-		let!(:calendar_event_once) { create(:calendar_event, user_id: user.id, date: "2014-09-09 UTC") }
-		let!(:other_calendar_event) { create(:calendar_event, date: "2014-09-09 UTC") }
-
-	  it "return only signed in users events" do
-			expect(CalendarEvent.events_for(user, Date.parse("2014-09-09 UTC"))).to match_array [calendar_event_once]
-		end
-	end
-
 	describe "all events" do
 	  let!(:older_calendar_event) { create(:calendar_event, date: "2014-09-09 15:00:00 UTC", repeat: 'daily') }
 	  let!(:newer_calendar_event) { create(:calendar_event, date: "2014-09-09 5:00:00 UTC", repeat: 'daily') }

@@ -1,3 +1,4 @@
+= render 'layouts/events_buttons'
 h3
 	= link_to calendar_events_path(for_date: "#{@events_date - 1.day}") do
 		span.glyphicon.glyphicon-chevron-left
@@ -5,7 +6,6 @@ h3
 	= link_to calendar_events_path(for_date: "#{@events_date + 1.day}") do
 		span.glyphicon.glyphicon-chevron-right
 
+em#events_count
 - unless @calendar_events.empty?
 	= render @calendar_events
-- else
-	em No events for this day

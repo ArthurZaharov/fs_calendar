@@ -24,6 +24,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+gem 'jquery-turbolinks', '~> 2.1.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -40,7 +41,10 @@ group :development do
 end
 
 group :test do
+	gem 'selenium-webdriver', '~> 2.43.0'
+	gem 'database_cleaner', '~> 1.3.0'
 	gem 'capybara', '~> 2.4.1'
+	gem 'capybara-webkit', '~> 1.3.0'
 	gem 'shoulda-matchers', '~> 2.6.2'
 	gem 'faker', '~> 1.4.2'
 end

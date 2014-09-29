@@ -1,4 +1,4 @@
-h4
+h4.user_event class=(calendar_event.user == current_user ? "owner" : "not_owner")
 	span.label.label-primary
 		= calendar_event.date.strftime("%H:%M")
 	em

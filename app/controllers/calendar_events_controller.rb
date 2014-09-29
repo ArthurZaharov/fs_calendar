@@ -1,16 +1,12 @@
 class CalendarEventsController < ApplicationController
 
 	before_action :authenticate_user!
-	before_action :set_events_date, only: [:index, :by_user]
 	before_action :find_calendar_event, only: [:edit, :update]
 	before_action :check_permission, only: [:edit, :update]
 
 	def index
+		@events_date = params[:for_date] ? Date.parse(params[:for_date]) : Time.now.in_time_zone('UTC')
 		@calendar_events = CalendarEvent.all_events_for @events_date
-	end
-
-	def by_user
-		@calendar_events = CalendarEvent.events_for current_user, @events_date
 	end
 
 	def new
@@ -43,10 +39,6 @@ class CalendarEventsController < ApplicationController
 
 		def calendar_event_params
 			params.require(:calendar_event).permit(:title, :date, :repeat)
-		end
-
-		def set_events_date
-			@events_date = params[:for_date] ? Date.parse(params[:for_date]) : Time.now.in_time_zone('UTC')
 		end
 
 		def find_calendar_event
