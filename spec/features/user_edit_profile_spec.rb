@@ -29,7 +29,7 @@ feature 'Users edit profile', type: :feature do
   end
 
   scenario 'success with valid information' do
-    edit_user_profile_with 'New user fullname', 'somevalidemail@example.com', '', user.password
+    edit_user_profile_with 'New name', 'email@example.com', '', user.password
 
     expect(page).to have_text('You updated your account successfully')
   end

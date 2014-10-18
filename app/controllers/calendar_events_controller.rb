@@ -4,7 +4,12 @@ class CalendarEventsController < ApplicationController
   before_action :check_permission, only: [:edit, :update]
 
   def index
-    @events_date = params[:for_date] ? Date.parse(params[:for_date]) : Time.now.in_time_zone('UTC')
+    @events_date =
+      if params[:for_date]
+        Date.parse(params[:for_date])
+      else
+        Time.now.in_time_zone('UTC')
+      end
     @calendar_events = CalendarEvent.all_events_for @events_date
   end
 
@@ -16,7 +21,8 @@ class CalendarEventsController < ApplicationController
     @calendar_event = CalendarEvent.new(calendar_event_params)
     @calendar_event.user = current_user
     if @calendar_event.save
-      redirect_to calendar_events_path, notice: 'You successfully create new event'
+      flash[:notice] = 'You successfully create new event'
+      redirect_to calendar_events_path
     else
       render :new
     end
@@ -27,7 +33,8 @@ class CalendarEventsController < ApplicationController
 
   def update
     if @calendar_event.update(calendar_event_params)
-      redirect_to calendar_events_path, notice: 'You successfully edit event'
+      flash[:notice] = 'You successfully edit event'
+      redirect_to calendar_events_path
     else
       render :edit
     end
