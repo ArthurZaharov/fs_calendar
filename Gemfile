@@ -31,26 +31,26 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 group :test, :development do
-	gem 'rspec-rails', '~> 3.0.2'
-	gem 'factory_girl_rails', '~> 4.4.1'
+  gem 'rspec-rails', '~> 3.0.2'
+  gem 'factory_girl_rails', '~> 4.4.1'
 end
 
 group :development do
-	gem 'spring'
-	gem 'slim-rails', '~> 2.1.5'
+  gem 'spring'
+  gem 'slim-rails', '~> 2.1.5'
 end
 
 group :test do
-	gem 'selenium-webdriver', '~> 2.43.0'
-	gem 'database_cleaner', '~> 1.3.0'
-	gem 'capybara', '~> 2.4.1'
-	gem 'capybara-webkit', '~> 1.3.0'
-	gem 'shoulda-matchers', '~> 2.6.2'
-	gem 'faker', '~> 1.4.2'
+  gem 'selenium-webdriver', '~> 2.43.0'
+  gem 'database_cleaner', '~> 1.3.0'
+  gem 'capybara', '~> 2.4.1'
+  gem 'capybara-webkit', '~> 1.3.0'
+  gem 'shoulda-matchers', '~> 2.6.2'
+  gem 'faker', '~> 1.4.2'
 end
 
 group :production do
-	gem 'rails_12factor', '~> 0.0.2'
+  gem 'rails_12factor', '~> 0.0.2'
 end
 
 # Use ActiveModel has_secure_password
@@ -64,4 +64,3 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-

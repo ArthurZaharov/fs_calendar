@@ -4,6 +4,6 @@ FactoryGirl.define do
   factory :calendar_event do
     title { Faker::Lorem.sentence }
     date { 1.day.ago }
-    repeat "once"
+    repeat 'once'
   end
 end
